@@ -19,7 +19,7 @@ city_list = [["Paris","75000"],["Lyon","69000"],["Marseille","13000"],["Nice","0
 # end
 
 
-1000.times do
+100.times do
   User.create(first_name:Faker::Name.first_name,last_name:Faker::Name.last_name, description:Faker::Lorem.sentences(number: 2).join(" "))
 end
 
