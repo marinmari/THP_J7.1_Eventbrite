@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'user/new'
-  get 'user/create'
-  get 'new/create'
+  get 'users/new'
+  get 'users/create'
+  get 'users/index'
+  get 'users/destroy'
+  get 'users/update'
+  get 'users/show'
+resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
