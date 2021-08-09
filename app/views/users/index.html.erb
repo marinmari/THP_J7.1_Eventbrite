@@ -24,4 +24,15 @@
 
 <br>
 
+<h1><%= Event.count %></h1>
+    <% @all_events.each do |event| %>
+
+    <p><%= event.start_date %></p>
+    <p><%= event.title      %> </p>
+
+     <% end %>
+
+
+
+
 <%= link_to 'New User', new_user_path %>
