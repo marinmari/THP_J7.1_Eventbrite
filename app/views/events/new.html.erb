@@ -1,2 +1,37 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<body>
+  <form action="<%=events_path %>" method="post">  
+    <div class="mb-3">
+      <label for="title" class="form-label">Nom de l'event</label>
+      <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+    </div>
+    
+    <div class="mb-3">
+      <label for="start_date" class="form-label">Date</label>
+      <input type="date" class="form-control" id="start_date" name="start_date" aria-describedby="emailHelp">
+    </div>
+    <div>
+      <label for="duration" class="form-label">Duration of the event: </label><br/>
+      <input type="range" class="form-range" name="duration" min="0" max="7" id="duration">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="localisation" class="form-label">Localisation</label>
+      <input type="text" class="form-control" id="location" name="location" placeholder="Paris">
+    </div>
+    <p>Price :</p>
+    <div class="input-group">
+      <input type="text" class="form-control" id="price" name="price" aria-label="Dollar amount (with dot and two decimal places)">
+      <span class="input-group-text">$</span>
+      <span class="input-group-text">0.00</span>
+    </div>
+    <br/>
+    <div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="text" name="admin_id" value="<%= @user.id %>">
+      <button type="submit" method="post" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</body>

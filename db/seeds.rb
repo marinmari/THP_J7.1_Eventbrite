@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'faker'
 
 [User, Event, Attendance].map {|tab| tab.destroy_all}
 ['users', 'events', 'attendances'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
@@ -20,7 +20,9 @@ city_list = [["Paris","75000"],["Lyon","69000"],["Marseille","13000"],["Nice","0
 
 
 50.times do
-  User.create(first_name:Faker::Name.first_name,last_name:Faker::Name.last_name, description:Faker::Lorem.sentences(number: 2).join(" "), email:'jojo.justman@gmail.com')
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  User.create(first_name: first_name,last_name: last_name, description:Faker::Lorem.sentences(number: 2).join(" "), email:"#{first_name}.#{last_name}@yopmail.com", password: Faker::Internet.password)
 end
 
 # tag_list.map {|tag| Tag.create(title: tag)}
