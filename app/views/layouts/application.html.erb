@@ -26,7 +26,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Crée ton event<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%= new_event_path%>">Crée ton event<span class="sr-only">(current)</span></a>
       </li>
       <% if !user_signed_in? %>
         <li class="nav-item dropdown">
@@ -34,8 +34,8 @@
         S'inscrire / Se connecter
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">S'inscrire</a>
-          <a class="dropdown-item" href="#">Se connecter</a> 
+          <a class="dropdown-item" href="<%=new_user_registration_path%>">S'inscrire</a>
+          <a class="dropdown-item" href="<%= new_user_session_path%>">Se connecter</a> 
         </div>
         </li>
       <% else %>
@@ -44,8 +44,8 @@
         Mon profil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Mon profil</a>
-          <a class="dropdown-item" href="#">Se déconnecter</a> 
+          <a class="dropdown-item" href="<%= users_show_path%>">Mon profil</a>
+          <%= link_to 'Deconnexion', destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
         </div>
         </li>
       <% end %>
