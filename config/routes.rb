@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'attendance/new'
+  get 'attendance/create'
+  get 'attendance/show'
+  get 'attendance/index'
   get 'events/index'
   get 'events/new'
   get 'static_pages/index'
@@ -14,5 +18,9 @@ Rails.application.routes.draw do
 resources :static_pages
 resources :users
 resources :events 
+resources :charges
+resources :events do 
+  resources :attendances
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
