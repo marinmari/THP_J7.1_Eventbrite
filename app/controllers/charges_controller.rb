@@ -16,6 +16,16 @@ class ChargesController < ApplicationController
       description: "Achat d'un produit",
       currency: 'eur',
       })
+
+      @attendance = Attendance.new
+      @attendance.stripe_customer_id = charge.customer
+      puts "@@@@@@@@@@@@@@@"
+      puts @attendance.stripe_customer_id
+      puts "@@@@@@@@@@@@@@@"
+      @attendance.event = @event
+      @attendance.attendee = @attendee
+      @attendance.save
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_order_path
